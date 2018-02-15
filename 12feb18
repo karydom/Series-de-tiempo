@@ -1,0 +1,82 @@
+#### lectura de datos ####
+
+setwd ("C:/Users/Sala-D19/Desktop/Series de tiempo")
+
+#Instalacion
+
+#la forma más facil de leer es instalar todo el tidyverse
+
+install.packages("tidyverse")
+
+#alternativamente, instale solo "readr" que forma parte de "tidyverse":
+install.packages("readr")
+
+#read_csv(): archivos delimitados por comas
+#read_tsv(): archivos delimitados por tabulados
+#read_delim(): archivos delimitados generales
+#read_fwf(): archivos de ancho fijo
+#read_table(): archivos tabulares donde las comas estan separadas por espacios
+#read_log():archivos de registro web.
+
+library(readr)
+
+require(stats)  ##Manda llamar las bases de datos que ya estan cargadas en el programa R
+mtcars<- read.csv(readr_example("mtcars.csv"))
+mtcars
+datos_csv<-read.csv("C:/Users/Sala-D19/Desktop/clase1.csv")
+
+#Formato excel
+library(readxl)
+datos_excel<-read_excel("C:/Users/Sala-D19/Desktop/ventas.xlsx")
+
+head(datos_excel)
+tail(datos_excel)
+
+#Formato spss
+library(haven)
+datos_spss<-read_sav("C:/Users/Sala-D19/Desktop/ejemplo.sav")
+
+#Formato estata
+datos_stata<-read_stata("C:/Users/Sala-D19/Desktop/clase.dta")
+
+#Formato sas
+datos_sas<-read_sas("C:/Users/Sala-D19/Desktop/arima_est2.sas7bdat")
+
+## datos de sitio web
+data2<- read.table()
+head(data2)
+
+#Almacenamiento datos
+
+write.csv(datos_csv,"C:/Users/Sala-D19/Desktop/Series de tiempo/datos.csv") ## al final de la direccion donde se va
+#a guardar se pone el nombre del archivo que vamos a crear con la terminacion 
+
+#Datos en formato binario
+install.packages("feather")
+library(feather)
+
+write_feather(datos_csv,"C:/Users/Sala-D19/Desktop/Series de tiempo/datos.csv")
+
+#### Marco de datos ####
+#un data frame "imita" un conjunto de dtos que tienen la estructura de una matriz, pero se trata de una 
+#lista cuyos elementos son vectores o factores (columnas)
+
+observacion <- c(1,2,3,4,5,6,7,8,9,10)
+nombre <- c("Andres", "Paola","Erika","Ariadna","Rafael","Miguel","Mariela","Karen","Fernanda","Sofia")
+edad <- c(28,17,18,22,30,27,22,24,23,21)
+ciudad <-c("Toluca","Mexico","Guadalajara","Toluca","Monterrey","Toluca","Guadalajara","Toluca","Monterrey","Guadalajara")
+ingreso <-c(2000,3000,2000,3500,2500,4000,4200,2850,2330,1970)
+alumnos<- data.frame(Identificador=observacion, Persona=nombre, Edad=edad, Ciudad=ciudad, Ingreso=ingreso)
+
+# Creamos otro data frame
+edocivil<- c("Viudo","Soltero","soltero","soltero","soltero","casado","casado","Divorciado","casado","soltero")
+alumnos2<-data.frame(Identificador=observacion, Estado=edocivil)
+
+#podemos combinar "merge" los data frame
+merge(alumnos,alumnos2, by="Identificador")  #merge=fusion
+
+alumnos3<-merge(alumnos,alumnos2, by="Identificador")
+
+#ordenar el data frame
+
+alumnos[order(alumnos$Edad, decreasing = TRUE),]
