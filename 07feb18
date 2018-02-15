@@ -1,0 +1,88 @@
+#### Funciones basicas ####
+ 
+ ### directorio de trabajo
+ 
+ setwd ("C:/Users/Sala-D19/Desktop/Series de tiempo") ## Guarda los trabajos en una carpeta 
+ 
+ getwd() ## dice a donde esta enrutando el trabajo, donde lo esta leyendo
+ 
+ ### calculadora ###
+ 3+4
+ 3^4
+ 3*4-1+2
+ 
+ sqrt(10) #raiz cuadrada
+ exp(10)  # exp(x)=e^x
+ log(10)  #log base e 
+ 
+ log(10,10)  
+ log(10, base = 10)
+ 
+ pi
+ 
+ #### Asignación ####
+ x=1000
+ x<-1000
+ x+3
+ 
+ e^3
+ e<-exp(2)
+ 
+ ## operador de asignacion de valores a un objeto "<-"
+ 
+ y<-3
+ n<-34
+ 
+ ## vector: operador c, concatena elementos o vectores
+ 
+ salarios<-c(4000,5000,55000)
+ 
+ salarios1<-c(4000,5000,55000)
+ salarios2<-c(4000,5000,50000)
+ 
+ ## combinando vectores
+ 
+ salarios3<-c(40000,50000,55000)
+ salarios4<-c(10000,15000,20000)
+ salarios5<-c(salarios3, salarios4)
+ 
+ ##vectores con distinto tipos de datos
+ 
+ alumnos<-c("Elisa", "Bonifacio", "Edgar")
+ alumnos.salarios<-c("Elisa","Bonifacio", "Edgar", 40000,50000,55000)
+ 
+ ## Funciones y vectores
+ sum(salarios3)
+ length(salarios3)
+ sum(salarios3)/length(salarios3)
+ mean(salarios3)
+ 
+ ## Otras funciones: sort() es ordenar, min(), max(), range()
+ 
+ #varianza
+ x<-c(20,22,24,26,28)
+ mediax<-mean(x)
+ (x-mediax)^2 ## diferencia al cuadrado
+ sum((x-mediax)^2) ## suma de diferencias al cuadrado
+ n=length(x)
+ 
+ sum((x-mediax)^2)/(n-1)
+ var(x)
+ mean(x)
+ sd(x) #desviacion estandar
+ 
+ #### Instalacion de paquetes ####
+ 
+ install.packages("Giza")
+ #apertura de librerias
+ library(Giza)
+ 
+ ### dudas
+ 
+ ??"Giza"
+ 
+ #### Lectura de datos ####
+
+##Formato csv 
+install.packages("readr")
+library(readr)
