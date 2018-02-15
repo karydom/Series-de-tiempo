@@ -1,0 +1,40 @@
+## algunos graficos sencillos
+plot()
+hist()
+boxplot()
+barplot()
+
+set.seed(12345) #semilla aleatoria o generador
+variable_y<- rnorm(30) ## variable y con dist normal de 30 observaciones
+plot(variable_y)
+windows() #muestra en otra ventana los graficos 
+x11()     #muestra en otra ventana los graficos
+variable_y
+
+xv<- seq(-3,3,0.01) #secuencia 
+yv<- dnorm(xv) #distribucion normal
+plot(xv, yv, type = "l",col="blue",main = "Distribución normal",ylab = "Kilo de oro", xlab = "Periodo")
+
+help(dnorm)
+help(rnorm)
+#types<-c("p","l","b","c","o","h","s","S","n") conectores
+
+attach(mtcars)
+par(mfrow=c(3,1)) #representa graficos en un solo lienzo
+hist(wt)   #tendencia
+hist(mpg) #Estacionalidad
+hist(disp)  #Aleatoriedad
+
+attach(mtcars)
+layout(matrix(c(1,1,2,3),2,2,byrow = TRUE)) #representa graficos en un solo lienzo
+hist(wt)   #tendencia
+hist(mpg) #Estacionalidad
+hist(disp)  #Aleatoriedad
+
+detach(mtcars)
+
+
+library(readxl)
+petroleo<-read_excel("F:/Facultad/OCTAVO/SERIES DE TIEMPO/documentos clase/petroleo.xlsx")
+petroleo.ts<-ts(petroleo)  #declara el vector en Series de tiempo
+plot(petroleo.ts,xlab = "Tiempo", ylab = "Precio del barril",main = "Precio del barril de petroleo")
